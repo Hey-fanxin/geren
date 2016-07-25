@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>www.bianjunping.com</title>
+    <link href="../namebjp.github.io/css/base.css" rel="stylesheet"/>
+    <style>
+        @font-face{
+            font-family:'Haoti';
+            src:url(../namebjp.github.io/font/%E7%A6%B9%E5%8D%AB%E4%B9%A6%E6%B3%95%E8%A1%8C%E4%B9%A6%E7%B9%81%E4%BD%93.ttf);
+        }
+        @font-face{
+            font-family:'Liti';
+            src:url(../namebjp.github.io/font/simkai.ttf);
+        }
+        @font-face{
+            font-family:'caoTi';
+            src:url(../namebjp.github.io/font/bb2276.rar);
+        }
+        *{padding:0;margin:0;list-style:none;}
+        img{width:100%;height:100%;}
+        body{height:1000px;background:#e4eef2}
+        #back{width:100px;height:40px;color: #0efac3;position:absolute;top:50px;right:80px;font-family:'Liti';font-size:25px;text-decoration:none;}
+        #box{width:100%;height:450px;}
+        #resume{position:absolute;left:50%;top:100px;width:600px;height:500px;margin-left:-300px;z-index:99;}
+        .man{position:absolute;left:0;top:0;width:100%;height:100%;background:#269abc;opacity:0.6;filter:alpha(opacity:60);border:1px solid #fff;border-radius:30px;}
+        #name_box{width:100%;height:80px;/*position:absolute;bottom:0;left:0;*/z-index:999;}
+        #name_logo{width:100%;height:80px;position:relative;}
+        #name{width:100%;height:80px;background:url("../namebjp.github.io/img/name-b1.jpg")repeat;/*position:absolute;left:0;top:0*/}
+        #name h2{width:200px;float:left; font-size:60px;color:#fff;font-family:'Liti';margin-left:100px;margin-top:5px;}
+        #name h6{width:150px;padding-top:20px;float:left;margin-left:10px;font-size:30px;color: #b3b29e;font-family:'Haoti';}
+        #name span{display:block;width:25%;float:right;margin-right:10%;color:rebeccapurple;font-size:18px;margin-top:10px;}
+         #phone{width:100%;height:80px;background: #2cdbb5;line-height:80px;text-align:center;position:absolute;left:0;bottom:-1px;z-index:919;border:1px solid #fff;border-radius:10px 10px 30px 30px;}
+        #phone a{font-family:'Liti';font-size:30px;}
+        #phone a:hover{color:red;}
+        .photo{width:190px;height:350px;border-radius:10px;position:absolute;left:30px;top:30px;}
+        #resume dl{width:290px;height:300px;position:absolute;top:30px;right:30px;}
+        #resume dl dt{padding-left:20px;font-size:40px;color: #3a110d;font-weight:bold;font-family:'Liti';border-bottom:3px solid #644448;border-radius:10px;margin-bottom:15px;}
+        #resume dl dt p{font-size:17px;color: #ffebfc;font-family:'Liti';line-height:25px;}
+        #resume dl dd{padding-left:20px;line-height:50px;font-size:23px;font-family:'Liti';font-weight:bold;}
+        #resume dl .state{font-size:20px;color:red;}
+       /* 爱好*/
+        #hobby{width:100%;height:400px;margin-top:150px;}
+        .hobby{width:100%;height:250px;text-align:center;}
+        .hobby h3{width:300px;height:50px;margin:0 auto;text-align:center;font-size:30px;margin-bottom:10px;padding-top:20px;font-family:'Liti';font-weight:bold;border-bottom:2px solid red;border-radius:10px;color: #3a110d;}
+        .hobby p{font-size:16px;font-family:'微软雅黑';color: #4f4230;}
+        .programme{width:100%;height:150px;}
+        .programme li{width:200px;height:40px;border:1px solid #eea236;float:left;background:#000;margin-left:85px;color:#fff;font-size:30px;text-align:center;border-radius:10px;}
+        .programme li div{width:150px;height:0;font-size:18px;margin:20px auto;overflow:hidden;color:indianred;}
+
+        #undergo{width:100%;height:500px;background:red;}
+    </style>
+    <script src="../namebjp.github.io/js/common1.0.js"></script>
+    <script>
+        window.onload=function(){
+            var NameBox=document.getElementById('name_box');
+            var NameLogo=document.getElementById('name_logo');
+            nameLogo();
+            function nameLogo() {
+                for (var i = 0; i < 10; i++) {
+                    var span = document.createElement('span');
+                    span.style.position = 'absolute';
+                    span.style.width = 0;
+                    span.style.height = 0;
+                    span.style.left = rnd(30, 900) + 'px';
+                    span.style.top = rnd(10, 100) + 'px';
+                    span.style.borderRadius = '50%';
+                    span.style.background = 'rgb(' + rnd(1, 50) + ',' + rnd(1, 106) + ',' + rnd(1, 89) + ')';
+                    span.style.opacity = 0.3;
+                    span.style.zIndex = 999;
+                    NameLogo.appendChild(span);
+                }
+            }
+            var span = NameLogo.getElementsByTagName('span');
+            function next(){
+                for (var i = 0; i < span.length; i++) {
+                    (function (index) {
+                        move(span[i], {
+                            left: rnd(0, 1000),
+                            top: rnd(0, 70),
+                            width: rnd(20, 35),
+                            height: rnd(20, 35),
+                            opacity: 0.5
+                        }, {
+                            duration: 4000, complete: function () {
+                                //alert(index);
+                                move(span[index], {left: rnd(0, 1000), top: rnd(0, 70), width: 0, height: 0, opacity: 0}, {
+                                    duration: 3000, complete: function () {
+                                        NameLogo.innerHTML = '';
+                                        nameLogo();
+                                        next();
+                                    }
+                                })
+                            }
+                        })
+                    })(i);
+                }
+            }
+            next();
+            var oProgramme=document.getElementById('programme').children;
+            for(var i=0; i<oProgramme.length; i++){
+                oProgramme[i].onmouseover=function(){
+                    var oProgramme_aLi=this.children[0];
+                    move(oProgramme_aLi,{height:90});
+                };
+                oProgramme[i].onmouseout=function(){
+                    var oProgramme_aLi=this.children[0];
+                    move(oProgramme_aLi,{height:0});
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <img src="img/yejing-2%20.JPG" alt="">
+</div>
+<a href="../namebjp.github.io/index.html" id="back">返回首页</a>
+<!--介绍-->
+<div id="resume">
+    <span class="man"></span>
+    <div class="photo">
+        <img src="img/jiqi.png" alt="">
+    </div>
+    <dl>
+        <dt>I'm 边军平<p>Web前端开发工程师</p></dt>
+        <dd>年龄：25</dd>
+        <dd>地址：河北承德</dd>
+        <dd>邮箱：895800148@.qq.com</dd>
+        <dd>电话：13582428525</dd>
+        <dd class="state">状态：网上外包，可随时到岗</dd>
+    </dl>
+    <div id="phone">
+        <a href="javascript:;">下载简历</a>
+    </div>
+</div>
+<!--爱好-->
+<div id="hobby">
+    <div class="hobby">
+        <h3>爱好-和-编程</h3>
+        <p>在初中时比较喜欢篮球（后卫—外线）和游戏<br/><br/>每年都有一次全县篮球比赛（虽然没那拿奖，但感觉非常有激情），有激情生活才有意思<br/><br/>
+        游戏玩的时间比较长，LOL，CF，很羡慕游戏编写的技术 所以有时间就研究一下效果也算有明显。<br/><br/>
+            梦想是可以打到世界LOL职业联赛  &nbsp; &nbsp;&nbsp; 加油！！
+        </p>
+    </div>
+    <ul class="programme" id="programme">
+        <li>
+            javascript
+            <div>
+                经历了很多坎坷，慢慢的也比较喜欢去研究，明白才是道路。
+            </div>
+        </li>
+        <li>
+            H5
+            <div>
+                比较喜欢它的效果，而且性能很高。
+            </div>
+        </li>
+        <li>
+            nodejs
+            <div>
+                虽然不是很精通，但也算很了解，性能很高用景比较大
+            </div>
+        </li>
+        <li>
+            Aangejs
+            <div>
+                虽然不是很精通，但也算很了解，性能很高用景比较大
+            </div>
+        </li>
+    </ul>
+</div>
+<!--经历-->
+<!--<div id="undergo">
+
+</div>-->
+<!--底部留名-->
+<div id="name_box">
+    <div id="name_logo"></div>
+    <div id="name">
+        <h2>边军平</h2><h6>Web</h6>
+        <span>电话：13582428525</span><br />
+        <span>邮箱：895800148@qq.com</span>
+    </div>
+</div>
+</body>
+</html>
